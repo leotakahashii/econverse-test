@@ -1,8 +1,18 @@
-// Variáveis globais do projeto.
-// Os valores abaixo são provisórios: vou ajustar com as cores e fontes do Figma.
-$color-text: #1a1a1a;
+// Variáveis globais do projeto, com os valores retirados do Figma.
+
+// Cores
+$color-blue: #3442b5;
+$color-text: #3f3f40;
+$color-text-muted: #808080;
 $color-background: #ffffff;
 
-$font-family-base: system-ui, -apple-system, 'Segoe UI', sans-serif;
+// Fonte do projeto. A Poppins vem do Google Fonts, e eu carrego ela no próximo passo.
+// As fontes seguintes são reserva, caso a Poppins não carregue.
+$font-family-base: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+// Pesos de fonte usados no layout.
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
 
 $spacing-unit: 8px;
