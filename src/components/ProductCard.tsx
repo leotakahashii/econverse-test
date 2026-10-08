@@ -9,11 +9,12 @@ const priceFormatter = new Intl.NumberFormat('pt-BR', {
 })
 interface ProductCardProps {
     product: Product
+    onSelect: (product: Product) => void
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onSelect }: ProductCardProps) {
     return (
-        <article className="product-card">
+        <article className="product-card" onClick={() => onSelect(product)}>
             <img className="product-card__image" src={product.photo} alt={product.productName} />
             <h3 className="product-card__name">{product.productName}</h3>
             <p className="product-card__price">{priceFormatter.format(product.price)}</p>

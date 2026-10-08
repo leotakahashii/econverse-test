@@ -1,26 +1,31 @@
 import { useProducts } from './hooks/useProducts'
-import { ProductCard } from './components/ProductCard'
+import { ProductList } from './components/ProductList'
+import { useState } from 'react'
+import type { Product } from './types/products'
 
 
 function App() {
-  // Chama o hook e pega os três valores que ele devolve.
+  // Aqui vai chamar o hook e pegar os três valores que ele devolve.
   const { products, loading, error } = useProducts()
+    // Aqui vai guardar o produto clicado. Começando como null, ou seja, nenhum produto selecionado.
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
-  // Enquanto a busca está em andamento, mostra uma mensagem de carregamento.
+  // Enquanto a busca está em andamento, vai mostrar uma mensagem de carregamento.
   if (loading) return <p>Carregando...</p>
 
-  // Se a busca falhou, mostra a mensagem de erro guardada no hook.
+  // Se a busca falhar, vai mostrar uma mensagem de erro que está guardada no hook.S
   if (error) return <p>{error}</p>
 
   return (
     <main>
       <h1>Vitrine de produtos</h1>
-      <section>
-        {/* Para cada produto da lista, desenha um ProductCard. */}
-        {products.map((product) => (
-          <ProductCard key={product.productName} product={product} />
-        ))}
-      </section>
+      <ProductList 
+      products={products}
+      onSelectProduct={(product) => {
+        setSelectedProduct(product)
+        console.log('Produto selecionado:', product)
+      }}
+      />
     </main>
   )
 }
