@@ -9,7 +9,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product, onSelect }: ProductCardProps) {
     return (
-        <article className="prosuct-card" onClick={() => onSelect(product)}>
+        <article className="product-card" onClick={() => onSelect(product)}>
             <img className="product-card__image" src={product.photo} alt={product.productName} />
             <h3 className="product-card__name">{product.productName}</h3>
             <p className="product-card__price">{formatPrice(product.price)}</p>
