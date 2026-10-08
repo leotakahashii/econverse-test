@@ -1,5 +1,5 @@
 import type { Product } from '../types/products'
-import   { ProductCard } from './ProductCard'
+import { ProductCard } from './ProductCard'
 import './ProductList.scss'
 
 interface ProductListProps {

@@ -1,0 +1,141 @@
+@use '../styles/variables' as *;
+
+// Fundo escuro que cobre a tela toda e centraliza o modal.
+.product-modal__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: $color-overlay;
+}
+
+// Caixa branca do modal
+.product-modal {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 87px;
+    width: 769px;
+    max-width: 100%;
+    min-height: 299px;
+    padding: 56px 51px 38px 56px;
+    background-color: $color-white;
+    border-radius: 6px;
+
+    &__close {
+        position: absolute;
+        top: 12px;
+        right: 24px;
+        padding: 0;
+        border: none;
+        background: none;
+        font-size: 32px;
+        line-height: 1;
+        color: $color-text;
+    }
+
+    &__image {
+        flex-shrink: 0;
+        width: 247px;
+        height: 192px;
+        object-fit: contain;
+    }
+
+    &__info {
+        width: 328px;
+        margin-top: 7px;
+    }
+
+    &__name {
+        margin: 0;
+        font-size: 20px;
+        font-weight: $font-weight-regular;
+        line-height: 1;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $color-text;
+    }
+
+    &__price {
+        margin: 18px 0 0;
+        font-size: 20px;
+        font-weight: $font-weight-semibold;
+        line-height: 1;
+        letter-spacing: 1px;
+        color: $color-text;
+    }
+
+    &__description {
+        width: 290px;
+        max-width: 100%;
+        margin: 32px 0 0;
+        font-family: $font-family-secondary;
+        font-size: 10px;
+        font-weight: $font-weight-medium;
+        line-height: 1.505;
+        letter-spacing: 0.5px;
+        color: $color-gray;
+    }
+
+    // Link "Veja mais detalhes", feito com button porque ainda não leva a nenhuma página.
+    &__details {
+        margin: 18px 0 0;
+        padding: 0;
+        border: none;
+        background: none;
+        font-family: $font-family-secondary;
+        font-size: 11px;
+        font-weight: $font-weight-semibold;
+        line-height: 1;
+        letter-spacing: 0.55px;
+        color: $color-blue;
+    }
+
+    // Linha com o seletor de quantidade e o botão, lado a lado.
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 32px;
+    }
+
+    &__quantity {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 110px;
+        height: 36px;
+        padding: 0 9px;
+        border: 1px solid $color-border;
+        border-radius: 4px;
+        background-color: $color-white;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        color: $color-purple;
+
+        // Os botões de menos e mais, sem a aparência padrão.
+        button {
+            padding: 0;
+            border: none;
+            background: none;
+            font-size: 24px;
+            line-height: 1;
+            color: $color-text;
+        }
+    }
+
+    &__buy {
+        width: 188px;
+        height: 36px;
+        border: none;
+        border-radius: 6px;
+        background-color: $color-yellow;
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        color: $color-purple;
+    }
+}

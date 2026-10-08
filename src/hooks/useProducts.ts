@@ -3,7 +3,7 @@ import type { Product } from "../types/products";
 
 //Endereço do JSON de teste, que contém a lista de produtos.
 const PRODUCTS_URL =
-  '/api-produtos/teste-front-end/junior/tecnologia/lista-produtos/produtos.json'
+  "/api-produtos/teste-front-end/junior/tecnologia/lista-produtos/produtos.json";
 //Formato da resposta
 interface ProductsResponse {
   success: boolean;

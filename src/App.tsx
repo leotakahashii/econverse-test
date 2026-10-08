@@ -1,31 +1,34 @@
+import { useState } from 'react'
 import { useProducts } from './hooks/useProducts'
 import { ProductList } from './components/ProductList'
-import { useState } from 'react'
+import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
 
-
+// Componente principal: busca os produtos, mostra a vitrine e controla o modal.
 function App() {
-  // Aqui vai chamar o hook e pegar os três valores que ele devolve.
+  // Chama o hook e pega os três valores que ele devolve.
   const { products, loading, error } = useProducts()
-    // Aqui vai guardar o produto clicado. Começando como null, ou seja, nenhum produto selecionado.
+
+  // Guarda o produto clicado. Começa como null, ou seja, nenhum produto selecionado.
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
-  // Enquanto a busca está em andamento, vai mostrar uma mensagem de carregamento.
+  // Enquanto a busca está em andamento, mostra uma mensagem de carregamento.
   if (loading) return <p>Carregando...</p>
 
-  // Se a busca falhar, vai mostrar uma mensagem de erro que está guardada no hook.S
+  // Se a busca falhar, mostrará uma mensagem de erro guardada no hook.
   if (error) return <p>{error}</p>
 
   return (
     <main>
       <h1>Vitrine de produtos</h1>
-      <ProductList 
-      products={products}
-      onSelectProduct={(product) => {
-        setSelectedProduct(product)
-        console.log('Produto selecionado:', product)
-      }}
-      />
+
+      {/* Ao clicar em um card, o produto vai para o estado selectedProduct. */}
+      <ProductList products={products} onSelectProduct={setSelectedProduct} />
+
+      {/* Só mostra o modal quando há um produto selecionado. */}
+      {selectedProduct && (
+        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      )}
     </main>
   )
 }
