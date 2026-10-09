@@ -4,6 +4,7 @@ import { ProductList } from './components/ProductList'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
 import { SectionTitle } from './components/SectionTitle'
+import { CategoryTabs } from './components/CategoryTabs'
 
 // Componente principal: busca os produtos, mostra a vitrine e controla o modal.
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <h1>Vitrine de produtos</h1>
       <SectionTitle title="Produtos relacionados" />
       {/* Ao clicar em um card, o produto vai para o estado selectedProduct. */}
+      <CategoryTabs />
       <ProductList products={products} onSelectProduct={setSelectedProduct} />
       {/* Só mostra o modal quando há um produto selecionado. */}
       {selectedProduct && (
