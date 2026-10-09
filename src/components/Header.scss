@@ -1,0 +1,36 @@
+@use '../styles/variables' as *;
+
+.header {
+    // O header ocupa 1280px, centralizado.
+    max-width: 1280px;
+    margin: 0 auto;
+
+    // Faixa de benefícios do topo.
+    &__benefits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 119px;
+        height: 32px;
+        // Listas elas vêm com a margem e com marcadores por padrão, aqui tirei os dois.
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid $color-line;
+        font-size: 12px;
+        font-weight: $font-weight-medium;
+        color: $color-gray;
+    }
+
+    &__benefit {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        // As partes em destaque do texto.
+        strong {
+            font-weight: $font-weight-semibold;
+            color: $color-highlight;
+        }
+    }
+}

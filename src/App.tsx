@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useProducts } from './hooks/useProducts'
+import { Header } from './components/Header'
 import { ProductShowcase } from './components/ProductShowcase'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
@@ -19,21 +20,25 @@ function App() {
   if (error) return <p>{error}</p>
 
   return (
-    <main>
-      <h1>Vitrine de produtos</h1>
+    <>
+      <Header />
 
-      {/* Título, abas e carrossel agrupados em um só componente. */}
-      <ProductShowcase
-        title="Produtos relacionados"
-        products={products}
-        onSelectProduct={setSelectedProduct}
-      />
+      <main>
+        <h1>Vitrine de produtos</h1>
 
-      {/* Só mostra o modal quando há um produto selecionado. */}
-      {selectedProduct && (
-        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-      )}
-    </main>
+        {/* Título, abas e carrossel agrupados em um só componente. */}
+        <ProductShowcase
+          title="Produtos relacionados"
+          products={products}
+          onSelectProduct={setSelectedProduct}
+        />
+
+        {/* Só mostra o modal quando há um produto selecionado. */}
+        {selectedProduct && (
+          <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        )}
+      </main>
+    </>
   )
 }
 
