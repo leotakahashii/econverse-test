@@ -49,4 +49,19 @@
         font-weight: $font-weight-bold;
         text-transform: uppercase;
     }
+
+        &__installments {
+        margin: 8px 0 0;
+        font-size: 12px;
+        font-weight: $font-weight-regular;
+        color: $color-text;
+    }
+
+    &__shipping {
+        
+        margin: 4px 0 16px;
+        font-size: 12px;
+        font-weight: $font-weight-regular;
+        color: $color-blue;
+    }
 }
