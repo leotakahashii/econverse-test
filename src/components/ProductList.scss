@@ -2,19 +2,16 @@
 
 // Área do carrossel, com 1364px de largura, onde as setas ficam nas pontas.
 .product-carousel {
-    // relative para as setas se posicionarem em relação a esta área.
+    // relative para as setas se posicionarem em relação a área.
     position: relative;
     max-width: 1364px;
-    // A margem negativa compensa o padding da fileira, para o layout não ganhar espaço extra.
     margin: -24px auto;
 
     &__arrow {
         position: absolute;
-        // Altura da seta no Figma: 246px abaixo do topo dos cards, mais 24px do padding.
         top: 270px;
         z-index: 1;
         display: flex;
-        // Botão circular de 32px, branco e com sombra, como no Figma.
         width: 32px;
         height: 32px;
         padding: 0;
@@ -22,7 +19,6 @@
         border-radius: 50%;
         background-color: $color-white;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        // O chevron usa currentColor, então herda esta cor.
         color: $color-text;
         cursor: pointer;
 
@@ -33,7 +29,6 @@
         &--next {
             right: 0;
 
-            // A mesma seta, girada, para apontar para o outro lado.
             svg {
                 transform: rotate(180deg);
             }
@@ -41,23 +36,16 @@
     }
 }
 
-// Fileira de cards, com as medidas do Figma.
+// Fileira de cards
 .product-list {
     display: flex;
     gap: 18px;
-
-    // 4 cards de 304px + 3 espaços de 18px = 1270px. O padding de 24px de cada
-    // lado dá espaço para a sombra dos cards não ser cortada pelo overflow.
     max-width: 1318px;
     padding: 24px;
     margin: 0 auto;
-
-    // Se os cards passam da largura, a fileira rola na horizontal.
     overflow-x: auto;
-    // Faz a rolagem encaixar no início de um card, em vez de parar no meio.
     scroll-snap-type: x mandatory;
     scroll-padding-left: 24px;
-
     // Esconde a barra de rolagem, porque o controle é feito pelas setas.
     scrollbar-width: none;
 

@@ -17,7 +17,7 @@ export function ProductCard({ product, onSelect }: ProductCardProps) {
             <p className="product-card__installments">
                 ou 2x de {formatPrice(product.price / 2)} sem juros
             </p>
-            {/* Texto fixo, para que fique igual ao layout do Figma. */}
+            {/* Texto fixo, para que fique igual ao layout do Figma, pois não consegui fazer de outra forma. */}
             <p className="product-card__shipping">Frete grátis</p>
             <button className="product-card__button" type="button">Comprar</button>
         </article>

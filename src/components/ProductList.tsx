@@ -16,7 +16,7 @@ interface ProductListProps {
 export function ProductList({ products, onSelectProduct }: ProductListProps) {
     // useRef guarda uma referência direta ao elemento da fileira,
     // para que o código consiga rolar ela.
-    const trackRef = useRef<HTMLElement>(null)
+    const trackRef = useRef<HTMLDivElement>(null)
 
     // direction: -1 volta um card e 1 avança um card.
     function scroll(direction: -1 | 1) {
@@ -32,18 +32,17 @@ export function ProductList({ products, onSelectProduct }: ProductListProps) {
                 aria-label="Ver produtos anteriores"
                 onClick={() => scroll(-1)}
             >
-                {/* Seta desenhada em SVG. O aria-hidden esconde o desenho dos leitores de tela. */}
                 {/* O viewBox "4 0 32 32" recorta o chevron do desenho original do Figma. */}
                 <svg width="32" height="32" viewBox="4 0 32 32" fill="currentColor" aria-hidden="true">
                     <path d="M22.1334 10.7442L21.0009 9.59998L14.6667 16L21.0009 22.4L22.1334 21.2557L16.9317 16L22.1334 10.7442Z" />
                 </svg>
             </button>
 
-            <section className="product-list" ref={trackRef}>
+            <div className="product-list" ref={trackRef}>
                 {products.map((product) => (
                     <ProductCard key={product.productName} product={product} onSelect={onSelectProduct} />
                 ))}
-            </section>
+            </div>
 
             <button
                 type="button"
@@ -51,7 +50,6 @@ export function ProductList({ products, onSelectProduct }: ProductListProps) {
                 aria-label="Ver próximos produtos"
                 onClick={() => scroll(1)}
             >
-                {/* O viewBox "4 0 32 32" recorta o chevron do desenho original do Figma. */}
                 <svg width="32" height="32" viewBox="4 0 32 32" fill="currentColor" aria-hidden="true">
                     <path d="M22.1334 10.7442L21.0009 9.59998L14.6667 16L21.0009 22.4L22.1334 21.2557L16.9317 16L22.1334 10.7442Z" />
                 </svg>
