@@ -1,0 +1,26 @@
+@use '../styles/variables' as *;
+
+.section-title {
+    // Texto no meio e as duas linhas se esticando para preencher o resto.
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    max-width: 1138px;
+    margin: 0 auto 24px;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background-color: $color-text;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 30px;
+        font-weight: $font-weight-bold;
+        color: $color-blue;
+        white-space: nowrap;
+    }
+}
