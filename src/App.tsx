@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useProducts } from './hooks/useProducts'
 import { Header } from './components/Header'
+import { Banner } from './components/Banner'
 import { ProductShowcase } from './components/ProductShowcase'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
 
-// Componente principal: busca os produtos, mostra a vitrine e controla o modal.
+// Componente principal: busca os produtos, mostra a página e controla o modal.
 function App() {
   // Chama o hook e pega os três valores que ele devolve.
   const { products, loading, error } = useProducts()
@@ -24,7 +25,7 @@ function App() {
       <Header />
 
       <main>
-        <h1>Vitrine de produtos</h1>
+        <Banner />
 
         {/* Título, abas e carrossel agrupados em um só componente. */}
         <ProductShowcase

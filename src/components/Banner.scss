@@ -1,0 +1,75 @@
+@use '../styles/variables' as *;
+
+.banner {
+    // relative para a imagem e a camada escura se posicionarem dentro do banner.
+    position: relative;
+    height: 390px;
+    // Corta o que passar das bordas do banner.
+    overflow: hidden;
+    color: $color-white;
+
+    // Imagem de fundo: preenche o banner inteiro sem deformar.
+    &__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // Escurecimento à esquerda, como no Figma: preto sólido no começo,
+    // esmaecendo até ficar transparente, com 80% de opacidade.
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 966px;
+        max-width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #000 0%, #000 15%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.8;
+    }
+
+    // Conteúdo alinhado à mesma coluna de 1280px do header.
+    &__content {
+        // relative faz o conteúdo ficar por cima da imagem e da camada escura.
+        position: relative;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-top: 78px;
+    }
+
+    &__title {
+        max-width: 822px;
+        margin: 0;
+        font-size: 48px;
+        font-weight: $font-weight-semibold;
+        line-height: 50px;
+    }
+
+    &__offer {
+        margin: 18px 0 0;
+        font-size: 32px;
+        line-height: 48px;
+
+        strong {
+            font-weight: $font-weight-bold;
+            color: $color-yellow;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 227px;
+        height: 60px;
+        margin-top: 41px;
+        border-radius: 5px;
+        background-color: $color-yellow;
+        font-size: 18px;
+        font-weight: $font-weight-semibold;
+        text-decoration: none;
+        color: $color-purple;
+    }
+}

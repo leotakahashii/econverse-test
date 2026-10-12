@@ -1,105 +1,158 @@
 @use '../styles/variables' as *;
 
 .header {
-  // O header ocupa 1280px, centralizado, como no Figma.
-  max-width: 1280px;
-  margin: 0 auto;
+    // O header ocupa 1280px, centralizado, como no Figma.
+    max-width: 1280px;
+    margin: 0 auto;
 
-  // Faixa de benefícios do topo.
-  &__benefits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 119px;
-    height: 32px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    border-bottom: 1px solid $color-line;
-    font-size: 12px;
-    font-weight: $font-weight-medium;
-    color: $color-gray;
-  }
-
-  &__benefit {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    // As partes em destaque do texto.
-    strong {
-      font-weight: $font-weight-semibold;
-      color: $color-highlight;
+    // Faixa de benefícios do topo.
+    &__benefits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 119px;
+        height: 32px;
+        // Listas vêm com margem e marcadores por padrão, aqui tiro os dois.
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid $color-line;
+        font-size: 12px;
+        font-weight: $font-weight-medium;
+        color: $color-gray;
     }
-  }
 
-  // Faixa principal: logo, busca e ícones.
-  // São três colunas: as laterais dividem o espaço que sobra e a do meio tem 630px,
-  &__main {
-    display: grid;
-    grid-template-columns: 1fr 630px 1fr;
-    align-items: center;
-    height: 72px;
-    border-bottom: 1px solid $color-line;
-  }
+    &__benefit {
+        display: flex;
+        align-items: center;
+        gap: 9px;
 
-  &__logo {
-    justify-self: start;
-    display: flex;
-  }
-
-  &__search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 48px;
-    padding: 0 24px 0 16px;
-    background-color: $color-search-bg;
-    border-radius: 10px;
-
-    // Mostra um contorno quando o campo ou o botão estão com foco do teclado.
-    &:focus-within {
-      outline: 2px solid $color-blue;
+        // As partes em destaque do texto.
+        strong {
+            font-weight: $font-weight-semibold;
+            color: $color-highlight;
+        }
     }
-  }
 
-  &__search-input {
-    flex: 1;
-    min-width: 0;
-    border: none;
-    background: transparent;
-    font: inherit; // Manter a mesma fonte do header.
-    font-size: 14px;
-    font-weight: $font-weight-medium;
-    color: $color-text;
-    outline: none;
-
-    &::placeholder {
-      color: $color-gray;
-      opacity: 1;
+    // Faixa principal: logo, busca e ícones.
+    // Três colunas: as laterais dividem o espaço que sobra e a do meio tem 630px,
+    // então a busca fica exatamente no centro, como no Figma.
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr 630px 1fr;
+        align-items: center;
+        height: 72px;
+        border-bottom: 1px solid $color-line;
     }
-  }
 
-  &__search-button {
-    display: flex;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-
-  &__actions {
-    justify-self: end;
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
-
-    button {
-      display: flex;
-      padding: 0;
-      border: none;
-      background: none;
-      cursor: pointer;
+    &__logo {
+        // Alinha o logo à esquerda da primeira coluna.
+        justify-self: start;
+        display: flex;
     }
-  }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 48px;
+        padding: 0 24px 0 16px;
+        background-color: $color-search-bg;
+        border-radius: 10px;
+
+        // Mostra um contorno quando o campo ou o botão estão com foco do teclado.
+        &:focus-within {
+            outline: 2px solid $color-blue;
+        }
+    }
+
+    &__search-input {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        background: transparent;
+        // font: inherit faz o campo usar a Poppins da página, em vez da fonte padrão do navegador.
+        font: inherit;
+        font-size: 14px;
+        font-weight: $font-weight-medium;
+        color: $color-text;
+        // O contorno de foco fica no formulário (acima), então tiro o do campo.
+        outline: none;
+
+        &::placeholder {
+            color: $color-gray;
+            opacity: 1;
+        }
+    }
+
+    &__search-button {
+        display: flex;
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    &__actions {
+        // Alinha os ícones à direita da terceira coluna.
+        justify-self: end;
+        display: flex;
+        // flex-start mantém o presente (24px) alinhado ao topo, como no Figma.
+        align-items: flex-start;
+        gap: 32px;
+
+        button {
+            display: flex;
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    }
+
+    // Menu de categorias, com a sombra do Figma.
+    &__nav {
+        // relative + z-index fazem a sombra aparecer por cima do conteúdo logo abaixo.
+        position: relative;
+        z-index: 1;
+        background-color: $color-white;
+        box-shadow: 0 8px 16px rgba(57, 48, 19, 0.12);
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 91px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        // Espaço entre a coroa e o texto "Assinatura".
+        gap: 12px;
+        font-size: 12px;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-gray;
+
+        // Um destaque simples ao passar o mouse.
+        &:hover {
+            color: $color-text;
+        }
+
+        // Link em destaque (Ofertas do dia), roxo como no Figma.
+        &--highlight {
+            color: $color-highlight;
+
+            &:hover {
+                color: $color-highlight;
+            }
+        }
+    }
 }
