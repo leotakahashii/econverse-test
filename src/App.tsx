@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useProducts } from './hooks/useProducts'
 import { Header } from './components/Header'
 import { Banner } from './components/Banner'
+import { CategoryShortcuts } from './components/CategoryShortcuts'
 import { ProductShowcase } from './components/ProductShowcase'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
@@ -26,6 +27,7 @@ function App() {
 
       <main>
         <Banner />
+        <CategoryShortcuts />
 
         {/* Título, abas e carrossel agrupados em um só componente. */}
         <ProductShowcase

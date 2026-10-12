@@ -1,0 +1,86 @@
+@use '../styles/variables' as *;
+
+.category-shortcuts {
+    max-width: 1160px;
+    // 39px abaixo do banner e 90px acima da vitrine, como no Figma.
+    margin: 39px auto 90px;
+
+    &__list {
+        display: flex;
+        // Distribui os sete itens com o mesmo espaço entre eles.
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // Espaço entre a caixa e o nome, como no Figma.
+        gap: 22px;
+        width: 128px;
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        // font: inherit faz o botão usar a Poppins da página.
+        font: inherit;
+        font-size: 14px;
+        line-height: 21px;
+        color: $color-text;
+
+        // Item ativo: a caixa ganha sombra, e o ícone e o nome ficam roxos.
+        &--active {
+            .category-shortcuts__box {
+                box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
+
+                // Camada roxa por cima do ícone. Com mix-blend-mode: lighten, o roxo só
+                // aparece onde o desenho é escuro. O fundo branco continua branco.
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    border-radius: inherit;
+                    background-color: $color-highlight;
+                    mix-blend-mode: lighten;
+                    // Deixa o clique passar para o botão por baixo.
+                    pointer-events: none;
+                }
+            }
+
+            .category-shortcuts__label {
+                font-weight: $font-weight-semibold;
+                color: $color-highlight;
+            }
+        }
+    }
+
+    &__box {
+        // relative para a camada roxa se posicionar dentro da caixa.
+        position: relative;
+        // isolation cria um "grupo" próprio, para a mistura de cores
+        // acontecer só dentro da caixa e não afetar o resto da página.
+        isolation: isolate;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 128px;
+        height: 128px;
+        background-color: $color-white;
+        border-radius: 10px;
+    }
+
+    &__icon {
+        display: block;
+        // Deixa qualquer ícone em escala de cinza e aumenta o contraste,
+        // o que leva o desenho para preto e mantém o fundo branco.
+        filter: grayscale(1) contrast(2);
+    }
+
+    &__label {
+        // Evita que nomes longos, como "Esportes e Fitness", quebrem em duas linhas.
+        white-space: nowrap;
+    }
+}
