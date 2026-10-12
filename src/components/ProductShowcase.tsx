@@ -9,16 +9,32 @@ interface ProductShowcaseProps {
   title: string
   products: Product[]
   onSelectProduct: (product: Product) => void
+  // Quando true, mostra as abas de categoria. Quando false, mostra só o link "Ver todos".
+  // O "?" torna a prop opcional, e o valor padrão (true) mantém o comportamento anterior.
+  showTabs?: boolean
 }
 
-// Vitrine completa: título, abas de categoria e carrossel de produtos.
-// Agrupar as três partes permite repetir a vitrine na página sem duplicar código.
-export function ProductShowcase({ title, products, onSelectProduct }: ProductShowcaseProps) {
+// Vitrine completa: título, abas (ou link "Ver todos") e carrossel de produtos.
+// Agrupar as partes permite repetir a vitrine na página sem duplicar código.
+export function ProductShowcase({
+  title,
+  products,
+  onSelectProduct,
+  showTabs = true,
+}: ProductShowcaseProps) {
   return (
     // aria-label dá um nome à seção para leitores de tela.
     <section className="product-showcase" aria-label={title}>
       <SectionTitle title={title} />
-      <CategoryTabs />
+
+      {showTabs ? (
+        <CategoryTabs />
+      ) : (
+        <a className="product-showcase__see-all" href="#">
+          Ver todos
+        </a>
+      )}
+
       <ProductList products={products} onSelectProduct={onSelectProduct} />
     </section>
   )

@@ -1,4 +1,23 @@
+@use '../styles/variables' as *;
+
 // Espaço de 90px entre a vitrine e a seção seguinte, como no Figma.
 .product-showcase {
     margin-bottom: 90px;
+
+    // Link "Ver todos", que ocupa o lugar das abas nas vitrines 2 e 3.
+    &__see-all {
+        display: block;
+        // 24px de espaço abaixo, até os cards, igual ao espaço que as abas deixam.
+        margin: 0 auto 24px;
+        font-size: 15px;
+        font-weight: $font-weight-bold;
+        line-height: 1.5;
+        text-align: center;
+        text-decoration: none;
+        color: $color-text;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

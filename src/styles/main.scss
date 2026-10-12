@@ -7,3 +7,15 @@ body {
   color: $color-text;
   background-color: $color-background;
 }
+
+// Rolagem suave ao clicar em links internos (como #id).
+html {
+  scroll-behavior: smooth;
+}
+
+// Respeita quem desativou animações nas configurações do sistema.
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

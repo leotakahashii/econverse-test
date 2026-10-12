@@ -61,7 +61,7 @@ export function Footer() {
             </div>
 
             <p className="footer__copyright">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                © 2026 Econverse. Desenvolvido por Leonardo Takahashi. Todos os direitos reservados.
             </p>
         </footer>
     )

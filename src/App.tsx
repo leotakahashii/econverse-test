@@ -9,6 +9,7 @@ import { BrandNavigator } from './components/BrandNavigator'
 import { Newsletter } from './components/Newsletter'
 import { Footer } from './components/Footer'
 import { ProductModal } from './components/ProductModal'
+import { Reveal } from './components/Reveal'
 import type { Product } from './types/products'
 
 // Componente principal: busca os produtos, mostra a página e controla o modal.
@@ -31,31 +32,48 @@ function App() {
 
       <main>
         <Banner />
-        <CategoryShortcuts />
 
-        {/* Vitrine 1 e o primeiro par de banners. */}
-        <ProductShowcase
-          title="Produtos relacionados"
-          products={products}
-          onSelectProduct={setSelectedProduct}
-        />
-        <PartnerBanners />
+        <Reveal>
+          <CategoryShortcuts />
+        </Reveal>
 
-        {/* Vitrine 2 e o segundo par de banners. */}
-        <ProductShowcase
-          title="Produtos relacionados"
-          products={products}
-          onSelectProduct={setSelectedProduct}
-        />
-        <PartnerBanners />
+        {/* Vitrine 1 (com abas) e o primeiro par de banners. */}
+        <Reveal>
+          <ProductShowcase
+            title="Produtos relacionados"
+            products={products}
+            onSelectProduct={setSelectedProduct}
+          />
+        </Reveal>
+        <Reveal>
+          <PartnerBanners />
+        </Reveal>
 
-        {/* Navegue por marcas e vitrine 3. */}
-        <BrandNavigator />
-        <ProductShowcase
-          title="Produtos relacionados"
-          products={products}
-          onSelectProduct={setSelectedProduct}
-        />
+        {/* Vitrine 2 (com "Ver todos") e o segundo par de banners. */}
+        <Reveal>
+          <ProductShowcase
+            title="Produtos relacionados"
+            products={products}
+            onSelectProduct={setSelectedProduct}
+            showTabs={false}
+          />
+        </Reveal>
+        <Reveal>
+          <PartnerBanners />
+        </Reveal>
+
+        {/* Navegue por marcas e vitrine 3 (com "Ver todos"). */}
+        <Reveal>
+          <BrandNavigator />
+        </Reveal>
+        <Reveal>
+          <ProductShowcase
+            title="Produtos relacionados"
+            products={products}
+            onSelectProduct={setSelectedProduct}
+            showTabs={false}
+          />
+        </Reveal>
 
         {/* Só mostra o modal quando há um produto selecionado. */}
         {selectedProduct && (
@@ -63,8 +81,12 @@ function App() {
         )}
       </main>
 
-      <Newsletter />
-      <Footer />
+      <Reveal>
+        <Newsletter />
+      </Reveal>
+      <Reveal>
+        <Footer />
+      </Reveal>
     </>
   )
 }
