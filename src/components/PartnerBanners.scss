@@ -1,0 +1,78 @@
+@use '../styles/variables' as *;
+
+.partner-banners {
+    // Dois banners lado a lado, com 13px de espaço entre eles, como no Figma.
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    max-width: 1280px;
+    // 90px de espaço abaixo, até a próxima seção.
+    margin: 0 auto 90px;
+
+    &__banner {
+        // relative para a foto, a camada escura e o conteúdo se posicionarem dentro do banner.
+        position: relative;
+        height: 350px;
+        overflow: hidden;
+        border-radius: 10px;
+        color: $color-white;
+    }
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // Escurecimento na parte de baixo (261px de altura, como no Figma):
+    // transparente em cima e escuro embaixo.
+    &__overlay {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 261px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%);
+        opacity: 0.8;
+    }
+
+    // O conteúdo começa a 114px do topo e a 44px da esquerda.
+    &__content {
+        position: relative;
+        padding: 114px 0 0 44px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 40px;
+        font-weight: $font-weight-bold;
+        line-height: 60px;
+    }
+
+    &__text {
+        // 200px de largura faz o texto quebrar em duas linhas, como no Figma.
+        width: 200px;
+        margin: 8px 0 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 145px;
+        height: 48px;
+        margin-top: 32px;
+        border-radius: 6px;
+        background-color: $color-yellow;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-purple;
+    }
+}

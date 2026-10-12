@@ -3,7 +3,9 @@ import { useProducts } from './hooks/useProducts'
 import { Header } from './components/Header'
 import { Banner } from './components/Banner'
 import { CategoryShortcuts } from './components/CategoryShortcuts'
+import { BrandNavigator } from './components/BrandNavigator'
 import { ProductShowcase } from './components/ProductShowcase'
+import { PartnerBanners } from './components/PartnerBanners'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
 
@@ -29,7 +31,25 @@ function App() {
         <Banner />
         <CategoryShortcuts />
 
-        {/* Título, abas e carrossel agrupados em um só componente. */}
+        {/* Vitrine 1 e os banners de parceiros. */}
+        <ProductShowcase
+          title="Produtos relacionados"
+          products={products}
+          onSelectProduct={setSelectedProduct}
+        />
+        <PartnerBanners />
+
+        {/* Vitrine 2 e o segundo par de banners. */}
+        <ProductShowcase
+          title="Produtos relacionados"
+          products={products}
+          onSelectProduct={setSelectedProduct}
+        />
+        <PartnerBanners />
+
+        <BrandNavigator />
+
+        {/* Vitrine 3 e o segundo par de banners. */}
         <ProductShowcase
           title="Produtos relacionados"
           products={products}

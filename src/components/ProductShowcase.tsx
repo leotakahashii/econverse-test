@@ -2,6 +2,7 @@ import type { Product } from '../types/products'
 import { CategoryTabs } from './CategoryTabs'
 import { ProductList } from './ProductList'
 import { SectionTitle } from './SectionTitle'
+import './ProductShowcase.scss'
 
 interface ProductShowcaseProps {
   // Título da seção, que aparece entre as duas linhas.
@@ -11,10 +12,11 @@ interface ProductShowcaseProps {
 }
 
 // Vitrine completa: título, abas de categoria e carrossel de produtos.
-// Agrupanso as três partes para que não precise repetir a vitrine na página sem duplicar código.
+// Agrupar as três partes permite repetir a vitrine na página sem duplicar código.
 export function ProductShowcase({ title, products, onSelectProduct }: ProductShowcaseProps) {
   return (
-    <section aria-label={title}>
+    // aria-label dá um nome à seção para leitores de tela.
+    <section className="product-showcase" aria-label={title}>
       <SectionTitle title={title} />
       <CategoryTabs />
       <ProductList products={products} onSelectProduct={onSelectProduct} />
