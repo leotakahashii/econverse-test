@@ -1,0 +1,96 @@
+@use '../styles/variables' as *;
+
+.footer {
+
+    // Faixa cinza do rodapé, na largura toda da tela.
+    &__main {
+        background-color: $color-footer-bg;
+    }
+
+    &__inner {
+        display: flex;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 41px 0;
+    }
+
+    // Bloco da marca. A borda direita é a linha vertical que separa as duas partes.
+    &__brand {
+        flex-shrink: 0;
+        width: 440px;
+        padding: 18px 0;
+        border-right: 1px solid $color-border;
+    }
+
+    &__description {
+        // 280px de largura faz o texto quebrar em duas linhas, como no Figma.
+        max-width: 280px;
+        margin: 19px 0 0;
+        font-size: 14px;
+        font-weight: $font-weight-light;
+        line-height: 21px;
+        color: $color-text;
+    }
+
+    &__social {
+        display: flex;
+        gap: 24px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            display: flex;
+        }
+    }
+
+    // Colunas de links, à direita da linha vertical.
+    &__nav {
+        display: flex;
+        align-items: flex-start;
+        gap: 100px;
+        padding: 38px 0 0 91px;
+    }
+
+    &__column-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: $font-weight-semibold;
+        line-height: 21px;
+        color: $color-text;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__link {
+        font-family: $font-family-secondary;
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        line-height: 21px;
+        text-decoration: none;
+        color: $color-gray;
+
+        &:hover {
+            color: $color-text;
+        }
+    }
+
+    // Faixa branca fina, com o texto centralizado.
+    &__copyright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        margin: 0;
+        font-size: 12px;
+        font-weight: $font-weight-light;
+        color: $color-text;
+    }
+}

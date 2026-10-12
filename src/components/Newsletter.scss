@@ -1,0 +1,97 @@
+@use '../styles/variables' as *;
+
+// A faixa roxa ocupa a largura toda da tela.
+.newsletter {
+    background-color: $color-purple;
+    color: $color-white;
+
+    // O conteúdo fica na coluna de 1280px, como no resto da página.
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        max-width: 1280px;
+        height: 163px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-family-heading;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    &__description {
+        // 520px faz o texto quebrar em duas linhas, como no Figma.
+        max-width: 520px;
+        margin: 4px 0 0;
+        font-size: 14px;
+        font-weight: $font-weight-light;
+        line-height: 1.2;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__fields {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__input {
+        width: 232px;
+        height: 40px;
+        padding: 0 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: $color-white;
+        // font: inherit faz o campo usar a Poppins da página.
+        font: inherit;
+        font-size: 13px;
+        color: $color-text;
+
+        &::placeholder {
+            color: $color-gray;
+            opacity: 1;
+        }
+    }
+
+    &__button {
+        width: 156px;
+        height: 40px;
+        border: none;
+        border-radius: 8px;
+        background-color: $color-yellow;
+        font: inherit;
+        font-size: 14px;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        color: $color-purple;
+        cursor: pointer;
+    }
+
+    &__terms {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: $font-weight-light;
+        cursor: pointer;
+
+        input {
+            // Pinta a caixinha na cor do projeto quando marcada.
+            accent-color: $color-yellow;
+        }
+    }
+
+    &__success {
+        margin: 0;
+        font-size: 16px;
+    }
+}

@@ -3,9 +3,11 @@ import { useProducts } from './hooks/useProducts'
 import { Header } from './components/Header'
 import { Banner } from './components/Banner'
 import { CategoryShortcuts } from './components/CategoryShortcuts'
-import { BrandNavigator } from './components/BrandNavigator'
 import { ProductShowcase } from './components/ProductShowcase'
 import { PartnerBanners } from './components/PartnerBanners'
+import { BrandNavigator } from './components/BrandNavigator'
+import { Newsletter } from './components/Newsletter'
+import { Footer } from './components/Footer'
 import { ProductModal } from './components/ProductModal'
 import type { Product } from './types/products'
 
@@ -31,7 +33,7 @@ function App() {
         <Banner />
         <CategoryShortcuts />
 
-        {/* Vitrine 1 e os banners de parceiros. */}
+        {/* Vitrine 1 e o primeiro par de banners. */}
         <ProductShowcase
           title="Produtos relacionados"
           products={products}
@@ -47,9 +49,8 @@ function App() {
         />
         <PartnerBanners />
 
+        {/* Navegue por marcas e vitrine 3. */}
         <BrandNavigator />
-
-        {/* Vitrine 3 e o segundo par de banners. */}
         <ProductShowcase
           title="Produtos relacionados"
           products={products}
@@ -61,6 +62,9 @@ function App() {
           <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
         )}
       </main>
+
+      <Newsletter />
+      <Footer />
     </>
   )
 }
