@@ -1,36 +1,105 @@
 @use '../styles/variables' as *;
 
 .header {
-    // O header ocupa 1280px, centralizado.
-    max-width: 1280px;
-    margin: 0 auto;
+  // O header ocupa 1280px, centralizado, como no Figma.
+  max-width: 1280px;
+  margin: 0 auto;
 
-    // Faixa de benefícios do topo.
-    &__benefits {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 119px;
-        height: 32px;
-        // Listas elas vêm com a margem e com marcadores por padrão, aqui tirei os dois.
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        border-bottom: 1px solid $color-line;
-        font-size: 12px;
-        font-weight: $font-weight-medium;
-        color: $color-gray;
+  // Faixa de benefícios do topo.
+  &__benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 119px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid $color-line;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    color: $color-gray;
+  }
+
+  &__benefit {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    // As partes em destaque do texto.
+    strong {
+      font-weight: $font-weight-semibold;
+      color: $color-highlight;
     }
+  }
 
-    &__benefit {
-        display: flex;
-        align-items: center;
-        gap: 9px;
+  // Faixa principal: logo, busca e ícones.
+  // São três colunas: as laterais dividem o espaço que sobra e a do meio tem 630px,
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 630px 1fr;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid $color-line;
+  }
 
-        // As partes em destaque do texto.
-        strong {
-            font-weight: $font-weight-semibold;
-            color: $color-highlight;
-        }
+  &__logo {
+    justify-self: start;
+    display: flex;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 24px 0 16px;
+    background-color: $color-search-bg;
+    border-radius: 10px;
+
+    // Mostra um contorno quando o campo ou o botão estão com foco do teclado.
+    &:focus-within {
+      outline: 2px solid $color-blue;
     }
+  }
+
+  &__search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font: inherit; // Manter a mesma fonte do header.
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    outline: none;
+
+    &::placeholder {
+      color: $color-gray;
+      opacity: 1;
+    }
+  }
+
+  &__search-button {
+    display: flex;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  &__actions {
+    justify-self: end;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+
+    button {
+      display: flex;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+  }
 }
