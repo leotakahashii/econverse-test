@@ -18,15 +18,15 @@ export function useProducts() {
   // useEffect roda um código quando o componente aparece na tela.
   // O [] no final faz isso acontecer só uma vez.
   useEffect(() => {
-    // A função de dentro é async porque fetch demora e precisamos esperar a resposta.
+    // A função de dentro é async porque fetch demora e precisa esperar a resposta.
     async function loadProducts() {
-      // try tenta executar o código. Se algo der errado, o fluxo pula para o catch.
+      // try  vai tentar executar o código, e caso algo der errado, o fluxo pula para o catch.
       try {
         // fetch faz a requisição ao endereço e await espera ela terminar.
         const response = await fetch(PRODUCTS_URL);
 
-        // fetch só falha sozinho se a internet cair. Se o servidor responder com
-        // erro (como 404 ou 500), eu preciso conferir response.ok por conta própria.
+        // fetch só falha sozinho se a internet cair, mas se o servidor responder com
+        // erro (como 404 ou 500), eu preciso conferir o response.ok por conta própria.
         if (!response.ok) {
           throw new Error(`Erro ${response.status}`);
         }
@@ -37,7 +37,7 @@ export function useProducts() {
         // Guarda a lista no estado.
         setProducts(data.products);
       } catch (err) {
-        // Qualquer falha cai aqui: guardamos uma mensagem para mostrar na tela.
+        // Qualquer falha vai cair aqui, onde guardei uma mensagem para mostrar na tela.
         console.error("Falha ao buscar produtos: ", err);
         setError("Não foi possível carregar os produtos.");
       } finally {

@@ -112,7 +112,7 @@
 
     // Menu de categorias, com a sombra do Figma.
     &__nav {
-        // relative + z-index fazem a sombra aparecer por cima do conteúdo logo abaixo.
+        // relative + z-index para fazer a sombra aparecer por cima do conteúdo logo abaixo.
         position: relative;
         z-index: 1;
         background-color: $color-white;

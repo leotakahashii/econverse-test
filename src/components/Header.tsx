@@ -43,7 +43,7 @@ export function Header() {
         </a>
 
         {/* role="search" avisa leitores de tela que este formulário é uma busca.
-            O preventDefault impede a página de recarregar ao enviar (a busca em si ainda não existe). */}
+            O preventDefault vai impedir a página de recarregar ao enviar (a busca em si ainda não existe). */}
         <form className="header__search" role="search" onSubmit={(event) => event.preventDefault()}>
           <input
             className="header__search-input"

@@ -3,7 +3,7 @@ import type { Product } from '../types/products'
 import { ProductCard } from './ProductCard'
 import './ProductList.scss'
 
-// Quanto a fileira rola a cada clique: a largura de um card (304px) mais o espaço entre eles (18px).
+// Quanto a fileira rola a cada clique, a largura de um card (304px) mais o espaço entre eles (18px).
 const SCROLL_STEP = 304 + 18
 
 interface ProductListProps {
@@ -32,7 +32,7 @@ export function ProductList({ products, onSelectProduct }: ProductListProps) {
                 aria-label="Ver produtos anteriores"
                 onClick={() => scroll(-1)}
             >
-                {/* O viewBox "4 0 32 32" recorta o chevron do desenho original do Figma. */}
+                {/* O viewBox "4 0 32 32" ele recorta o chevron do desenho original do Figma. */}
                 <svg width="32" height="32" viewBox="4 0 32 32" fill="currentColor" aria-hidden="true">
                     <path d="M22.1334 10.7442L21.0009 9.59998L14.6667 16L21.0009 22.4L22.1334 21.2557L16.9317 16L22.1334 10.7442Z" />
                 </svg>

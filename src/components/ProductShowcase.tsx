@@ -14,7 +14,7 @@ interface ProductShowcaseProps {
   showTabs?: boolean
 }
 
-// Vitrine completa: título, abas (ou link "Ver todos") e carrossel de produtos.
+// Vitrine completa, título, abas ou o link  de "Ver todos" e carrossel de produtos.
 // Agrupar as partes permite repetir a vitrine na página sem duplicar código.
 export function ProductShowcase({
   title,

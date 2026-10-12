@@ -26,7 +26,7 @@
         object-fit: cover;
     }
 
-    // Escurecimento na parte de baixo (261px de altura, como no Figma):
+    // Escurecimento na parte de baixo (261px de altura)
     // transparente em cima e escuro embaixo.
     &__overlay {
         position: absolute;
@@ -52,7 +52,7 @@
     }
 
     &__text {
-        // 200px de largura faz o texto quebrar em duas linhas, como no Figma.
+        // 200px de largura faz o texto quebrar em duas linhas.
         width: 200px;
         margin: 8px 0 0;
         font-size: 16px;

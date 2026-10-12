@@ -12,12 +12,12 @@ import { ProductModal } from './components/ProductModal'
 import { Reveal } from './components/Reveal'
 import type { Product } from './types/products'
 
-// Componente principal: busca os produtos, mostra a página e controla o modal.
+// Componente principal, ele busca os produtos, mostra a página e controla o modal.
 function App() {
   // Chama o hook e pega os três valores que ele devolve.
   const { products, loading, error } = useProducts()
 
-  // Guarda o produto clicado. Começa como null, ou seja, nenhum produto selecionado.
+  // Guarda o produto clicado, ele começa como null, ou seja, nenhum produto selecionado.
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   // Enquanto a busca está em andamento, mostra uma mensagem de carregamento.
