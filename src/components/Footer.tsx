@@ -1,7 +1,7 @@
 import logo from '../assets/logo.svg'
-import instagram from '../assets/instagram.svg'
-import facebook from '../assets/facebook.svg'
-import linkedin from '../assets/linkedin.svg'
+import instagram from '../assets/Instagram.svg'
+import facebook from '../assets/Facebook.svg'
+import linkedin from '../assets/Linkedin.svg'
 import './Footer.scss'
 
 // As três colunas de links, na ordem do Figma. Manter em uma lista evita repetir o mesmo HTML três vezes.
@@ -11,13 +11,15 @@ const LINK_COLUMNS = [
     { title: 'Termos', links: ['Termos e Condições', 'Política de Privacidade', 'Troca e Devolução'] },
 ]
 
-const SOCIAL_LINKS = [
+// Redes do rodapé. O nome da classe usa "networks" de propósito, bloqueadores de anúncios
+// escondem elementos com "social" no nome, e os ícones  estavam sumindo.
+const NETWORKS = [
     { name: 'Instagram', icon: instagram },
     { name: 'Facebook', icon: facebook },
     { name: 'LinkedIn', icon: linkedin },
 ]
 
-// Rodapé da página: marca e redes sociais à esquerda, links à direita.
+// Rodapé da página: marca e redes à esquerda, links à direita.
 export function Footer() {
     return (
         <footer className="footer">
@@ -29,8 +31,8 @@ export function Footer() {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         </p>
 
-                        <ul className="footer__social">
-                            {SOCIAL_LINKS.map(({ name, icon }) => (
+                        <ul className="footer__networks">
+                            {NETWORKS.map(({ name, icon }) => (
                                 <li key={name}>
                                     {/* O ícone não tem texto, então o aria-label dá o nome ao link. */}
                                     <a href="#" aria-label={name}>
@@ -60,9 +62,7 @@ export function Footer() {
                 </div>
             </div>
 
-            <p className="footer__copyright">
-                © 2026 Econverse. Desenvolvido por Leonardo Takahashi. Todos os direitos reservados.
-            </p>
+            <p className="footer__copyright">2026 © Econverse. Desenvolvido por Leonardo Takahashi.</p>
         </footer>
     )
 }

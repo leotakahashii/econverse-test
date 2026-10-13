@@ -23,7 +23,7 @@
     }
 
     &__description {
-        // 280px de largura faz o texto quebrar em duas linhas, como no Figma.
+        // 280px de largura faz o texto quebrar em duas linhas.
         max-width: 280px;
         margin: 19px 0 0;
         font-size: 14px;
@@ -32,7 +32,7 @@
         color: $color-text;
     }
 
-    &__social {
+    &__networks {
         display: flex;
         gap: 24px;
         margin: 28px 0 0;
